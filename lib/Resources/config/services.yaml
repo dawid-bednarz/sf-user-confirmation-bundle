@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    DawBed\UserConfirmationBundle\:
+        resource: '%bundle_dir%/*'
+        exclude: '%bundle_dir%/{DependencyInjection,Entity,Migrations,Tests}'
+    DawBed\UserConfirmationBundle\EventListener\AcceptListener:
+        tags:
+            - { name: kernel.event_listener, event: !php/const DawBed\UserConfirmationBundle\Service\TokenService::ACCEPT_EVENT }
+    DawBed\UserConfirmationBundle\EventListener\ErrorListener:
+        tags:
+            - { name: kernel.event_listener, event: !php/const DawBed\UserConfirmationBundle\Service\TokenService::ERROR_EVENT }
+    DawBed\UserConfirmationBundle\EventListener\GenerateListener:
+        tags:
+            - { name: kernel.event_listener, event: !php/const DawBed\UserConfirmationBundle\Event\Events::GENERATE_USER_TOKEN }
+    DawBed\UserConfirmationBundle\EventListener\RefreshListener:
+        tags:
+            - { name: kernel.event_listener, event: !php/const DawBed\UserConfirmationBundle\Event\Events::REFRESH_CONFIRMATION_TOKEN }

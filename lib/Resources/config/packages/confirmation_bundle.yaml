@@ -1,0 +1,4 @@
+dawbed_confirmation_bundle:
+    token_types:
+          - 'user-confirm-account'
+

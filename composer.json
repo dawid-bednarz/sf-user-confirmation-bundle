@@ -1,0 +1,18 @@
+{
+    "name": "dawid-bednarz/sf-user-confirmation-bundle",
+    "description": "User confirmation logic for symfony",
+    "type": "lib",
+    "require": {
+        "php": "^7.2",
+        "symfony/framework-bundle": "^4.1",
+        "dawid-bednarz/sf-component-bundle": "dev-master",
+        "dawid-bednarz/sf-confirmation-bundle": "@dev",
+        "dawid-bednarz/sf-status-bundle": "@dev",
+        "dawid-bednarz/php-user": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "DawBed\\UserConfirmationBundle\\": "lib"
+        }
+    }
+}
