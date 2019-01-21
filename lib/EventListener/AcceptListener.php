@@ -45,6 +45,7 @@ class AcceptListener
             $criteria = new ConfirmCriteria();
             $criteria->setToken($token);
             $status = $this->statusFactoryService->build(StatusFactoryService::CONFIRMATED_ID);
+
             $criteria->setStatus($status);
 
             $model = $this->confirmationService->prepareModel($criteria);
