@@ -1,0 +1,7 @@
+userRegistrationRefreshToken:
+    path: /registration/refresh-token
+    methods: [POST,OPTIONS]
+    controller: DawBed\UserConfirmationBundle\Controller\TokenController::refresh
+
+
+

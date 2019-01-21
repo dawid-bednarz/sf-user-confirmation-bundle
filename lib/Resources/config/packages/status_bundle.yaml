@@ -1,0 +1,3 @@
+dawbed_status_bundle:
+   types:
+       confirmated: !php/const DawBed\UserConfirmationBundle\Service\StatusFactoryService::CONFIRMATED_ID
