@@ -17,7 +17,7 @@
                 <join-column name="token_id" nullable="false" referenced-column-name="id"/>
             </join-columns>
         </one-to-one>
-        <one-to-one field="user" target-entity="DawBed\PHPUser\UserInterface" fetch="LAZY">
+        <one-to-one field="user" target-entity="Dawbed\UserBundle\Entity\AbstractUser" fetch="LAZY">
             <join-columns>
                 <join-column name="user_id" nullable="false" referenced-column-name="id" on-delete="CASCADE"/>
             </join-columns>

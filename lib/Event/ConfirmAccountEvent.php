@@ -9,7 +9,7 @@ namespace DawBed\UserConfirmationBundle\Event;
 
 use DawBed\ComponentBundle\Event\AbstractEvent;
 use DawBed\ConfirmationBundle\Event\Token\AcceptEvent;
-use DawBed\PHPUser\UserInterface;
+use Dawbed\UserBundle\Entity\UserInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class ConfirmAccountEvent extends AbstractEvent
