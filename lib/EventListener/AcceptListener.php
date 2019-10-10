@@ -11,30 +11,26 @@ use DawBed\ComponentBundle\Service\EventDispatcher;
 use DawBed\ConfirmationBundle\Event\Token\AcceptEvent;
 use DawBed\PHPContext\Model\CreateModel;
 use DawBed\PHPUserActivateToken\Model\Criteria\ConfirmCriteria;
-use DawBed\StatusBundle\Service\CreateService;
+use DawBed\StatusBundle\Provider;
 use DawBed\UserConfirmationBundle\Entity\Context;
 use DawBed\UserConfirmationBundle\Event\ConfirmAccountEvent;
 use DawBed\UserConfirmationBundle\Event\InvalidTokenEvent;
 use DawBed\UserConfirmationBundle\Service\ConfirmationService;
-use DawBed\UserConfirmationBundle\Service\StatusFactoryService;
 use Doctrine\ORM\NoResultException;
 
 class AcceptListener
 {
     private $confirmationService;
     private $eventDispatcher;
-    private $statusFactoryService;
-    private $createStatusService;
+    private $statusProvider;
 
     function __construct(ConfirmationService $confirmationService,
                          EventDispatcher $eventDispatcher,
-                         StatusFactoryService $statusFactoryService,
-                         CreateService $createStatusService)
+                         Provider $statusProvider)
     {
         $this->confirmationService = $confirmationService;
         $this->eventDispatcher = $eventDispatcher;
-        $this->statusFactoryService = $statusFactoryService;
-        $this->createStatusService = $createStatusService;
+        $this->statusProvider = $statusProvider;
     }
 
     function __invoke(AcceptEvent $event): void
@@ -44,7 +40,7 @@ class AcceptListener
         try {
             $criteria = new ConfirmCriteria();
             $criteria->setToken($token);
-            $status = $this->statusFactoryService->build(StatusFactoryService::CONFIRMATED_ID);
+            $status = $this->statusProvider->get('userConfirmated');
 
             $criteria->setStatus($status);
 

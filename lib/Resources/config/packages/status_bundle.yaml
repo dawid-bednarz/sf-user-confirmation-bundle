@@ -1,3 +1,5 @@
 dawbed_status_bundle:
-   types:
-       confirmated: !php/const DawBed\UserConfirmationBundle\Service\StatusFactoryService::CONFIRMATED_ID
+  statuses:
+    !php/const DawBed\UserConfirmationBundle\Enum\UserStatusEnum::CONFIRMED:
+      name: 'User Confirmated'
+      groups: ['user']
