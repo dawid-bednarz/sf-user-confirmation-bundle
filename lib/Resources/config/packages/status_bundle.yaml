@@ -2,4 +2,4 @@ dawbed_status_bundle:
   statuses:
     !php/const DawBed\UserConfirmationBundle\Enum\UserStatusEnum::CONFIRMED:
       name: 'User Confirmated'
-      groups: ['user']
+      groups: [!php/const DawBed\UserBundle\Enum\GeneralEnum::STATUS_GROUP]
