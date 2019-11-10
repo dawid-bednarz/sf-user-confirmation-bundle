@@ -11,7 +11,7 @@ use DawBed\ComponentBundle\Service\EventDispatcher;
 use DawBed\ConfirmationBundle\Event\Events;
 use DawBed\ConfirmationBundle\Event\Token\GenerateEvent as GenerateTokenEvent;
 use DawBed\ConfirmationBundle\Event\Token\RefreshEvent as RefreshTokenEvent;
-use DawBed\PHPToken\DTO\TokenSetting;
+use DawBed\PHPToken\DTO\TokenCriteria;
 use DawBed\PHPToken\TokenInterface;
 use DawBed\PHPUserActivateToken\Model\Criteria\CreateCriteria;
 
@@ -28,7 +28,7 @@ class TokenService
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function generate(TokenSetting $setting): TokenInterface
+    public function generate(TokenCriteria $setting): TokenInterface
     {
         $generateEvent = new GenerateTokenEvent($setting);
 
@@ -36,7 +36,7 @@ class TokenService
             ->getToken();
     }
 
-    public function refresh(TokenInterface $token, TokenSetting $setting): TokenInterface
+    public function refresh(TokenInterface $token, TokenCriteria $setting): TokenInterface
     {
         $refreshEvent = new RefreshTokenEvent($token, $setting);
 

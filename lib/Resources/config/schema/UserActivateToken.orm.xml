@@ -12,7 +12,7 @@
                 <join-column name="context_id" nullable="false" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-one field="token" target-entity="DawBed\PHPToken\TokenInterface" fetch="LAZY">
+        <one-to-one field="token" target-entity="DawBed\ConfirmationBundle\Entity\TokenInterface" fetch="LAZY">
             <join-columns>
                 <join-column name="token_id" nullable="false" referenced-column-name="id"/>
             </join-columns>
