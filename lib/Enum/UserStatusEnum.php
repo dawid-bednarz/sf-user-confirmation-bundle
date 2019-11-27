@@ -10,5 +10,5 @@ use DawBed\ComponentBundle\Enum\Enum;
  */
 class UserStatusEnum extends Enum
 {
-    const CONFIRMED = 'userConfirmated';
+    const CONFIRMED = 'user_confirmated';
 }
